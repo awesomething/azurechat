@@ -82,3 +82,18 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+## Azure Function with React, C# & Python
+If you're using Azure Functions in Python to process files and send an upload API call to C#, initiated by users uploading documents on a React UI page, you typically don't need an indexer code specifically for the upload process itself. However, if you want to process or index the uploaded documents in some way (such as storing them, analyzing them, or extracting information from them), you might need additional code or services to handle that processing.
+
+Here's a general outline of what you might need:
+
+1. React UI for File Upload: Your React UI page will include a file upload component or form that allows users to select and upload documents. When users interact with this UI component, it will make an HTTP request to the Azure Function you've set up to handle the upload.
+
+2. Azure Function for Upload Handling (Python): You'll need an Azure Function written in Python to handle the upload API call. This function will receive the uploaded document(s) and perform any necessary processing or validation. It will then likely store the document(s) in a storage service like Azure Blob Storage or Azure Files.
+
+3. Storage Service: After receiving the uploaded document(s), your Azure Function sends an API call to C# which in turn store them in a storage service such as Azure Blob Storage. This allows you to securely store the documents and access them later if needed.
+
+4. Optional: Indexing or Processing: If you need to process or index the uploaded documents (for example, extracting text content, analyzing the contents, or storing metadata), you'll need additional code or services to handle that processing. This could involve integrating with Azure Cognitive Services, using custom code for document analysis, or other methods depending on your requirements.
+
+In summary, while you don't necessarily need an "indexer" code specifically for the upload process, you may need additional code or services to handle processing or indexing of the uploaded documents depending on your application's requirements.
